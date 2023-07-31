@@ -1,0 +1,19 @@
+<template>
+    <div class="header">
+        <div class="header-text">
+            RESULT
+        </div>
+        <div class="header-result">
+            {result}
+        </div>
+        <div class="header-text">
+            ENERGY
+        </div>
+        <div class="header-energy_line">
+            <template for:each={energy} for:item="block">
+                <div class="header-energy_line-block"
+                    key={block.id}></div>
+            </template>
+        </div>
+    </div>
+</template>

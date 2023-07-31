@@ -1,0 +1,11 @@
+<template>
+    <div class="cells">
+        <template for:each={cells} for:item="cell">
+            <c-cell class="cells-cell"
+                key={cell.id}
+                cell={cell}
+                oncreatetarget={onCreateTarget}>
+            </c-cell>
+        </template>
+    </div>
+</template>

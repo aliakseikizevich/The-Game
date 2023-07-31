@@ -1,0 +1,6 @@
+.target_circle {
+    background-color: var(--target-color);
+    border-radius: 100%;
+    width: 15px;
+    height: 15px;
+}

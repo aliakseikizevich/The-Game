@@ -1,0 +1,24 @@
+<template>
+    <div class="page">
+        <div class="page-message">
+            Game Over
+        </div>
+        <div class="page-result">
+            your result is {result} points
+        </div>
+        <lightning-datatable
+            key-field="id"
+            data={results}
+            columns={columns}>
+        </lightning-datatable>
+        <!-- <template for:each={results} for:item="result">
+            <c-record-item
+                key={result.Id}
+                record={result}
+            ></c-record-item>
+        </template> -->
+        <div class="page-restart_button">
+            <input class="button" type="button" onclick={onRestart} value="RESTART"> 
+        </div>
+    </div>
+</template>

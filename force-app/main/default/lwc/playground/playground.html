@@ -1,0 +1,25 @@
+<template>
+    <div class="playground">
+        <div class="playground-field">
+            <c-field
+                cells={cells}
+                oncreatetarget={onCreateTarget}>
+            </c-field>
+        </div>
+        <div class="playground-gameConroller">
+            <div class="playground-game_controller-controls">
+                <c-game-controller
+                    onmove={onMove}>
+                </c-game-controller>
+            </div>
+            <div class="playground-gameController-buttons">
+                <div class="playground-gameController-stop_button">
+                    <input class="button" type="button" onclick={onStop} value="STOP"> 
+                </div>
+                <div class="playground-gameController-start_button">
+                    <input class="button" type="button" onclick={onStart} value="GO"> 
+                </div>
+            </div>
+        </div>
+    </div> 
+</template>

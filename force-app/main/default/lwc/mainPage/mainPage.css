@@ -1,0 +1,41 @@
+.page {
+    display: grid;
+    /* grid-template-rows: 1fr 1fr 1fr; */
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.page-playground {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.page-header {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media all and (max-width: 575px) {
+    .page {
+        grid-template-rows: 10 1fr 1fr;
+        column-gap: 0ch;
+        row-gap: 10px;
+    }
+}
+
+[ data-color-mode='light'] {
+    --start-button-color: #D58469;
+    --result-block-color: #F0EDE4;
+    --background-color: #F0EDE4;
+    --cell-color: #BBC0B6;
+    --control-button-color: #435861;
+    --energy-block-color: #435861;
+    --player-color: #435861;
+    --target-color: #D58469;
+}

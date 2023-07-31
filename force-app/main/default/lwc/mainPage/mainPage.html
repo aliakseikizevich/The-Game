@@ -1,0 +1,37 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <div class="mainPage" data-color-mode={mode}>
+        <template if:true={startPage}>
+            <c-start-page
+                onstart={onGamePage}>
+            </c-start-page>
+        </template>
+        <template if:true={gamePage}>
+            <div class="page">
+                <div class="page-playground">
+                    <c-playground
+                        cells={cells}
+                        onstart={onStart}
+                        onstop={gameOver}
+                        onmove={onPlayerMove}
+                        oncreatetarget={onCreateTarget}
+                        >
+                    </c-playground>
+                </div>
+                <div class="page-header">
+                    <c-header
+                        energy={energy}
+                        result={result}>
+                    </c-header>
+                </div>
+            </div>
+        </template>
+        <template if:true={isGameOver}>
+            <c-game-over-page
+                name={playerName}
+                result={result}
+                onrestart={onGamePage}>
+            </c-game-over-page>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,21 @@
+.button {
+    background-color: var(--start-button-color);
+    padding: 10px;
+    border-radius: 5px;
+    border-color: transparent;
+}
+
+.page-message {
+    font-size: xx-large;
+}
+
+.page-result {
+    font-size: large;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
