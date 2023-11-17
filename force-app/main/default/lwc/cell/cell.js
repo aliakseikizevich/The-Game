@@ -9,6 +9,10 @@ export default class Cell extends LightningElement {
     @api cell;
     @track isPlayer = false;
     @track isTarget = false;
+    @track objects = {
+        player: 'player',
+        target: 'target'
+    };
 
     @wire(MessageContext)
     messageContext;
@@ -17,29 +21,32 @@ export default class Cell extends LightningElement {
         this.subscribeToMessageChannel();   
     }
 
-    onCellEvent(message) {
-        if (message.recordData == 'player') this.onPlayerMove(message);
-        if (message.recordData == 'target') this.onGenerateTarget(message);
+    changeValues(message) {
+        if (message.oldId != this.cell.id && message.newId != this.cell.id) {
+            return;
+        }
+        if (message.oldId === this.cell.id) {
+            this.setValues(message, false);
+        }
+        if (message.newId === this.cell.id) {
+            this.setValues(message, true);
+        }
         if (this.isPlayer && this.isTarget) {
-            this.isTarget = false;
-            this.dispatchEvent(new CustomEvent('createtarget'));
+            this.deleteTarget();
         }
     }
 
-    onPlayerMove(message) {
-        if (message.recordId === this.cell.id) {
-            this.isPlayer = true;
-        } else {
-            this.isPlayer = false;
+    setValues(message, value) {
+        if (message.player) {
+            this.isPlayer = value;
+        } else if (message.target) {
+            this.isTarget = value;
         }
     }
 
-    onGenerateTarget(message) {
-        if (message.recordId === this.cell.id) {
-            this.isTarget = true;
-        } else {
-            this.isTarget = false;
-        }
+    deleteTarget() {
+        this.isTarget = false;
+        this.dispatchEvent(new CustomEvent('createtarget'));
     }
 
     subscribeToMessageChannel() {
@@ -47,7 +54,7 @@ export default class Cell extends LightningElement {
             this.subscription = subscribe(
                 this.messageContext,
                 gameConnection,
-                (message) => this.onCellEvent(message),
+                (message) => this.changeValues(message),
                 { scope: APPLICATION_SCOPE }
             );
         }
