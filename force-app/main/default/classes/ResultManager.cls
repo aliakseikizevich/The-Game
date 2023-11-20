@@ -1,4 +1,4 @@
-public class ResultManager {
+public without sharing class ResultManager {
 
     public static List<Result__c> getTopResults() {
         return [

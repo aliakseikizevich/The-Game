@@ -3,7 +3,8 @@
     <div class="mainPage" data-color-mode={mode}>
         <template if:true={startPage}>
             <c-start-page
-                onstart={onGamePage}>
+                onstart={onGamePage}
+                ongameoverpage={gameOver}>
             </c-start-page>
         </template>
         <template if:true={gamePage}>

@@ -155,6 +155,7 @@ export default class MainPage extends LightningElement {
     }
 
     gameOver() {
+        this.startPage = false;
         this.isGameOver = true;
         this.gamePage = false;
     }

@@ -1,4 +1,4 @@
-public class ResultService {
+public without sharing class ResultService {
     
     @AuraEnabled
     public static List<Result__c> getTopResults() {
